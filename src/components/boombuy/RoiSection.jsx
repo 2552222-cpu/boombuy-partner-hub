@@ -30,7 +30,8 @@ export default function RoiSection({ orgCount, setOrgCount, useLarry, setUseLarr
                     ₪<AnimatedNumber value={totalProfit} />
                   </span>
                 </div>
-                <p className="text-gray-400 text-lg mb-12" dir="rtl">רווח נקי משוער לשנתיים (לפי {orgCount} ארגונים)</p>
+                <p className="text-gray-400 text-lg mb-4" dir="rtl">רווח נקי משוער לשנתיים (לפי {orgCount} ארגונים)</p>
+                <p className="text-gray-600 text-xs mb-8" dir="rtl">* החישוב שמרני ואינו כולל רכישות פרטיות של העובדים מעבר לתקציב הארגון</p>
                 
                 <div className="space-y-6 border-t border-white/10 pt-8" dir="rtl">
                   <div className="flex justify-between items-center text-sm">

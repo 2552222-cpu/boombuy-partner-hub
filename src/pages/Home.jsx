@@ -42,6 +42,8 @@ export default function Home() {
         useLarry={useLarry} 
         setUseLarry={setUseLarry} 
       />
+      <TimelineSection />
+      <VisionSection />
       <Footer />
       <DocumentModal 
         selectedDoc={selectedDoc} 
