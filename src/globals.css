@@ -32,6 +32,10 @@
   --chart-5: 27 87% 67%;
 }
 
+body, * {
+  font-family: 'Heebo', sans-serif;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: #d1d5db transparent;
