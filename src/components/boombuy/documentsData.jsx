@@ -69,33 +69,92 @@ export function getDocuments() {
       tabs: [
         {
           id: 'letter',
-          label: 'המכתב',
+          label: 'המכתב המלא',
           content: (
             <div className="space-y-8 text-right" dir="rtl">
               <header className="border-b pb-6">
-                <h2 className="text-2xl font-bold mb-2 text-black">נושא: קול קורא: הצטרפות לניסוי הלאומי למניעת שחיקה ושימור עובדים (נבחרת ה-100)</h2>
+                <p className="text-sm text-gray-400 mb-2 font-bold uppercase tracking-widest">מאת: צוות המחקר והאסטרטגיה – HRUS & BoomBuy</p>
+                <p className="text-sm text-gray-400 mb-4">לכבוד: מנהלות ומנהלי HR ורווחה</p>
+                <h2 className="text-2xl font-black text-black">קול קורא: הצטרפות לנבחרת ה-100 – מחקר לאומי למניעת שחיקה ושימור עובדים</h2>
               </header>
-              <div className="bg-gray-50 p-8 rounded-2xl border italic text-xl leading-relaxed text-gray-800">
-                <p className="mb-6">"מנהלת HR ורווחה יקרה,</p>
-                <p className="mb-6 font-bold text-2xl text-black">האם ניתן להכפיל את ערך הרווחה מבלי להגדיל את התקציב בשקל?</p>
-                <p className="mb-6">בשיתוף עם פלטפורמת HRUS, אנו יוצאים למהלך אסטרטגי: מחקר לאומי למדידת השפעת כלים כלכליים על שימור ומניעת שחיקה. אנו מזמינים אותך להצטרף ל-100 הארגונים הראשונים שייקחו חלק במיזם.</p>
-                <p className="mb-8">אנו לא מציעים לך מוצר, אלא שותפות בעיצוב הפתרון למצוקה הגדולה של 2026: שחיקת עובדים."</p>
+
+              <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
+                <p className="text-xl font-black text-indigo-800">הנושא: האם ניתן להכפיל את ערך הרווחה מבלי להוסיף שקל אחד לתקציב הארגון?</p>
               </div>
-            </div>
-          )
-        },
-        {
-          id: 'benefits',
-          label: 'הטבות וניסוי',
-          content: (
-            <div className="space-y-8 text-right" dir="rtl">
-              <h4 className="font-bold mb-4 text-black text-2xl">מה כוללת ההשתתפות בניסוי?</h4>
-              <ul className="list-disc list-inside space-y-4 mb-6 text-xl text-black">
-                <li><strong>שלב א':</strong> הטמעת כלי למקסום כוח הקנייה של העובד (ערך כלכלי כפול על התקציב הקיים).</li>
-                <li><strong>שלב ב':</strong> קבלת גישה למוצר החדשני של BoomBuy למדידת מחוברות ומניעת שחיקה לאורך השנה.</li>
-              </ul>
-              <p className="p-6 bg-indigo-50 border border-indigo-100 rounded-2xl font-bold text-indigo-600 text-xl">
-                הטבה בלעדית: ל-100 הארגונים הראשונים – שדרוג למסלול Premium ללא עלויות הקמה או תפעול.
+
+              <p className="text-lg leading-relaxed text-gray-700">
+                מנהלת יקרה,
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                בשנים האחרונות, עולם העבודה עבר טלטלה. השחיקה (Burnout) הפכה לאיום ממשי על יציבות הארגונים בישראל. אנחנו רואים את זה בנתוני העזיבה, בירידה במחוברות ובתחושה שתקציבי הרווחה המסורתיים – גדלים ככל שיהיו – כבר לא מצליחים לייצר את האימפקט הכלכלי שהעובד זקוק לו ביומיום.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                בשיתוף עם פלטפורמת HRUS, אנו משיקים מהלך אסטרטגי ראשון מסוגו: <strong className="text-black">הניסוי הלאומי למדידת הקשר בין חוסן כלכלי לשימור עובדים.</strong>
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                אנו מזמינים אותך להגיש מועמדות להצטרף ל-<strong className="text-black">100 הארגונים הראשונים</strong> (בעלי 200 עובדים ומעלה) שייקחו חלק במיזם ה-Partner Design שלנו לשנת 2026.
+              </p>
+
+              <div className="border-t pt-6">
+                <h3 className="text-xl font-black text-black mb-4">מהו הפיצוח הכלכלי של הניסוי?</h3>
+                <p className="text-lg leading-relaxed text-gray-700 mb-4">אנו מבינים את מגבלות התקציב הקשיחות. לכן, המודל שלנו מבוסס על <strong className="text-black">אפס תוספת תקציבית (Zero Budget Impact)</strong>:</p>
+                <div className="bg-gray-50 rounded-2xl p-6 space-y-3">
+                  <p className="text-gray-700"><strong className="text-black">איך זה עובד?</strong> המערכת של BoomBuy יודעת "למתוח" את תקציב הרווחה הקיים שלכם ולהפוך כל שקל לערך כפול בכיס של העובד.</p>
+                  <p className="text-gray-700"><strong className="text-black">המחשה:</strong> אם היום תקציב הרווחה שלך מעניק לעובד ערך מסוים, הטכנולוגיה שלנו מאפשרת לו לרכוש מוצרי צריכה, לייף-סטייל, הופעות ותרבות בערך של <strong className="text-indigo-600">פי 2</strong> – מבלי שהארגון הוסיף שקל אחד לתקציב השנתי המאושר.</p>
+                </div>
+              </div>
+
+              <div className="border-t pt-6">
+                <h3 className="text-xl font-black text-black mb-4">מה כוללת ההשתתפות במחקר?</h3>
+                <div className="space-y-4">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-black flex-shrink-0 mt-0.5">א</div>
+                    <div>
+                      <p className="font-bold text-black">מקסום כוח קנייה</p>
+                      <p className="text-gray-600">הטמעה מיידית של כלי ה-Supercharge לעובדים, המעניק להם הקלה כלכלית משמעותית ביומיום.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-start">
+                    <div className="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black flex-shrink-0 mt-0.5">ב</div>
+                    <div>
+                      <p className="font-bold text-black">מדידת שחיקה ושימור</p>
+                      <p className="text-gray-600">קבלת גישה למוצר המחקר החדשני של BoomBuy, המודד לאורך השנה את רמת המחוברות (Engagement) והשפעת ההטבות על מניעת שחיקה ושימור העובדים בארגון.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-start">
+                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-black flex-shrink-0 mt-0.5">✓</div>
+                    <div>
+                      <p className="font-bold text-black">תפעול שקוף</p>
+                      <p className="text-gray-600">הצמדת מנהלת לקוח ייעודית מטעמנו שתנהל את כל התהליך עבורך, ללא עומס תפעולי על מחלקת ה-HR.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 border border-indigo-100">
+                <h3 className="text-xl font-black text-black mb-4">הטבה בלעדית לנבחרת ה-100:</h3>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-center gap-2"><span className="text-emerald-500 font-black">✓</span> שדרוג למסלול Premium הכולל את כל יכולות המערכת.</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500 font-black">✓</span> פטור מלא מעלויות הקמה, דמי שימוש או תפעול.</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500 font-black">✓</span> <strong className="text-black">התחייבות לערך כפול לעובד</strong> על בסיס התקציב הקיים – ללא תוספת של שקל אחד מהארגון.</li>
+                </ul>
+              </div>
+
+              <p className="text-lg leading-relaxed text-gray-700">
+                אנחנו לא מציעים לך עוד "ספק הטבות", אלא <strong className="text-black">מקום סביב השולחן בעיצוב הגביע הקדוש של עולם ה-HR</strong>: היכולת לייצר עובד מאושר, רגוע ומחובר יותר, באמצעים הקיימים.
+              </p>
+
+              <div className="bg-black text-white rounded-2xl p-6 text-center">
+                <p className="font-bold text-lg mb-1">מספר המקומות בניסוי מוגבל ל-100 הראשונים.</p>
+                <button className="mt-4 bg-white text-black font-black px-8 py-3 rounded-full text-sm hover:bg-gray-100 transition-colors">
+                  להגשת מועמדות והצטרפות למחקר הלאומי ←
+                </button>
+              </div>
+
+              <p className="text-gray-500 text-sm pt-4 border-t">
+                בברכה,<br />
+                <strong className="text-black">צוות ה-Partner Design</strong><br />
+                HRUS & BoomBuy
               </p>
             </div>
           )
