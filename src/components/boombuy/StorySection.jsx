@@ -47,7 +47,7 @@ export default function StorySection() {
           <p className="text-2xl text-gray-600 font-bold">איך נולד השילוב שמשנה את כללי המשחק</p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
           {cards.map((card, index) => (
             <motion.div 
               key={index}
@@ -55,14 +55,14 @@ export default function StorySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`apple-card p-10 flex flex-col justify-between min-h-[450px] group ${card.hoverClass}`}
+              className={`apple-card p-10 flex flex-col group ${card.hoverClass}`}
             >
-              <div className={`w-14 h-14 ${card.iconBg} rounded-2xl flex items-center justify-center ${card.iconTextColor || 'text-white'} mb-8 ${card.iconHover}`}>
+              <div className={`w-14 h-14 ${card.iconBg} rounded-2xl flex items-center justify-center ${card.iconTextColor || 'text-white'} mb-8 flex-shrink-0 ${card.iconHover}`}>
                 {card.icon}
               </div>
-              <div className="text-right" dir="rtl">
-                <h3 className="text-2xl font-black mb-4 text-black">{card.title}</h3>
-                <p className="text-black text-lg leading-relaxed font-bold">{card.text}</p>
+              <div className="text-right flex-1" dir="rtl">
+                <h3 className="text-xl font-black mb-4 text-black leading-tight">{card.title}</h3>
+                <p className="text-gray-700 text-base leading-relaxed font-medium">{card.text}</p>
               </div>
             </motion.div>
           ))}
