@@ -7,6 +7,8 @@ import RoiSection from '../components/boombuy/RoiSection';
 import Footer from '../components/boombuy/Footer';
 import DocumentModal from '../components/boombuy/DocumentModal';
 import ToastNotification from '../components/boombuy/ToastNotification';
+import TimelineSection from '../components/boombuy/TimelineSection';
+import VisionSection from '../components/boombuy/VisionSection';
 import { getDocuments } from '../components/boombuy/documentsData';
 
 export default function Home() {
