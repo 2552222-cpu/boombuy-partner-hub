@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, TrendingUp, Share2, PieChart, Briefcase } from 'lucide-react';
+import { FileText, TrendingUp, Share2, PieChart, Briefcase, BarChart2 } from 'lucide-react';
 
 export function getDocuments() {
   return [
