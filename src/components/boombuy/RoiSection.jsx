@@ -3,9 +3,18 @@ import { Users, PieChart } from 'lucide-react';
 import AnimatedNumber from './AnimatedNumber';
 
 export default function RoiSection({ orgCount, setOrgCount, useLarry, setUseLarry }) {
-  const gpPerOrg = 120000;
+  // חישוב: 300 עובדים × ₪1,000 תקציב = ₪300,000 מחזור לארגון
+  // רווח גולמי BoomBuy = 10% → GP לארגון = ₪30,000
+  // עמלת HRUS: 15% מ-GP (ללא לארי) או 10% (עם לארי)
+  const employeesPerOrg = 300;
+  const budgetPerEmployee = 1000;
+  const revenuePerOrg = employeesPerOrg * budgetPerEmployee; // ₪300,000
+  const gpRate = 0.10; // 10% רווח גולמי
+  const gpPerOrg = revenuePerOrg * gpRate; // ₪30,000
   const hrusRate = useLarry ? 0.10 : 0.15;
-  const totalProfit = orgCount * gpPerOrg * hrusRate;
+  const hrusPerOrg = gpPerOrg * hrusRate; // ₪4,500 או ₪3,000
+  // × 2 שנים (24 חודשים)
+  const totalProfit = orgCount * hrusPerOrg * 2;
 
   return (
     <section id="roi" className="py-32 px-6 bg-[#F5F5F7]">
