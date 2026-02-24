@@ -34,8 +34,8 @@ export default function RoiSection({ orgCount, setOrgCount, useLarry, setUseLarr
                 
                 <div className="space-y-6 border-t border-white/10 pt-8" dir="rtl">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-gray-400">עמלה שנתית ממוצעת לארגון:</span>
-                    <span className="font-bold text-white">₪9,000</span>
+                    <span className="text-gray-400">עמלה שנתית לארגון:</span>
+                    <span className="font-bold text-white">₪{(hrusPerOrg).toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-400">תקופת זכאות:</span>
