@@ -37,7 +37,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-2xl md:text-5xl text-gray-400 max-w-4xl leading-[1.1] mb-16 font-bold tracking-tight"
+            className="text-2xl md:text-5xl text-gray-400 max-w-4xl leading-[1.1] mb-16 font-extrabold tracking-tight"
           >
             הסיפור שלנו מתחיל בחיבור בין שני עולמות: המכונה הטכנולוגית המשומנת של BoomBuy והלגיטימציה המקצועית של HRUS.
           </motion.p>

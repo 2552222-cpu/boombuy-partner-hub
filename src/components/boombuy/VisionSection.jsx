@@ -12,7 +12,7 @@ export default function VisionSection() {
           <span className="inline-block p-3 bg-blue-600/20 rounded-2xl mb-8">
             <Trophy className="text-blue-500" size={32} />
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-10 italic" dir="rtl">
+          <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight mb-10 italic" dir="rtl">
             "הדאטה והלגיטימציה שבנית ב-20 שנה פוגשים היום את הטכנולוגיה שתהפוך אותם לנכס כלכלי חסר תקדים."
           </h2>
           <p className="text-xl md:text-2xl text-slate-400 font-medium italic opacity-80" dir="rtl">
