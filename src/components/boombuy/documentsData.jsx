@@ -231,37 +231,58 @@ export function getDocuments() {
     },
     {
       id: 'summary-milestones',
-      title: 'סיכום אבני דרך (ROI)',
-      subtitle: 'פוטנציאל פסיבי לשנתיים',
-      icon: <PieChart className="w-6 h-6" />,
+      title: 'סיכום פוטנציאל עסקי',
+      subtitle: 'מפת הדרכים ליעד של 500 ארגונים',
+      icon: <BarChart2 className="w-6 h-6" />,
       color: 'bg-orange-500',
       tabs: [
         {
           id: 'roi_summary',
-          label: 'ROI Summary',
+          label: 'מספרים ויעדים',
           content: (
             <div className="space-y-8 text-right" dir="rtl">
               <header className="border-b pb-6 text-black">
-                <h2 className="text-3xl font-bold mb-2">סיכום דמו: שורות הרווח ל-HRUS</h2>
-                <p className="text-gray-500">פוטנציאל פסיבי (לשנתיים) ללא הוצאות תפעול</p>
+                <h2 className="text-3xl font-bold mb-2">תחזית הכנסה פסיבית ל-HRUS</h2>
+                <p className="text-gray-500">הנחות יסוד שמרניות</p>
               </header>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-6 bg-gray-50 rounded-2xl border">
-                  <span className="text-2xl font-black text-blue-600">₪2.4 מיליון</span>
-                  <span className="text-xl font-bold text-black">200 ארגונים</span>
+
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-gray-50 rounded-2xl p-5 text-center border">
+                  <div className="text-2xl font-black text-black">300</div>
+                  <div className="text-xs text-gray-500 mt-1">עובדים לארגון</div>
                 </div>
-                <div className="flex justify-between items-center p-8 bg-blue-50 rounded-2xl border-2 border-blue-200 transform scale-105 shadow-lg">
-                  <span className="text-3xl font-black text-blue-700">₪6 מיליון</span>
-                  <span className="text-2xl font-bold text-black">500 ארגונים</span>
+                <div className="bg-gray-50 rounded-2xl p-5 text-center border">
+                  <div className="text-2xl font-black text-black">₪1,000</div>
+                  <div className="text-xs text-gray-500 mt-1">תקציב שנתי לעובד</div>
                 </div>
-                <div className="flex justify-between items-center p-6 bg-gray-900 rounded-2xl text-white">
-                  <span className="text-2xl font-black text-blue-400">₪12 מיליון</span>
-                  <span className="text-xl font-bold">1,000 ארגונים</span>
+                <div className="bg-gray-50 rounded-2xl p-5 text-center border">
+                  <div className="text-2xl font-black text-black">10%</div>
+                  <div className="text-xs text-gray-500 mt-1">רווח גולמי BoomBuy</div>
                 </div>
               </div>
-              <div className="p-6 bg-emerald-50 rounded-2xl border border-emerald-100 text-emerald-800 font-bold text-center text-xl">
-                הערה: רווח נקי ללא הוצאות וללא עבודה תפעולית מצד HRUS.
+
+              <div className="border-t pt-6">
+                <h3 className="text-lg font-black text-black mb-4">שורת הרווח (עמלת 10% ל-HRUS)</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center p-6 bg-gray-50 rounded-2xl border">
+                    <span className="text-xl font-black text-blue-600">~₪300,000 בשנה</span>
+                    <span className="text-base font-bold text-black">נבחרת ה-100</span>
+                  </div>
+                  <div className="flex justify-between items-center p-8 bg-blue-50 rounded-2xl border-2 border-blue-200 shadow-lg">
+                    <span className="text-2xl font-black text-blue-700">₪1,500,000 בשנה</span>
+                    <span className="text-xl font-bold text-black">יעד 500 ארגונים</span>
+                  </div>
+                  <div className="flex justify-between items-center p-6 bg-gray-900 rounded-2xl text-white">
+                    <span className="text-2xl font-black text-emerald-400">₪3,000,000</span>
+                    <span className="text-base font-bold">פוטנציאל מצטבר (שנתיים)</span>
+                  </div>
+                </div>
               </div>
+
+              <div className="p-6 bg-emerald-50 rounded-2xl border border-emerald-100 text-emerald-800 font-bold text-center">
+                הזדמנות אסטרטגית: שימוש בדאטה ובמוניטין של 15 שנות פעילות ליצירת נכס כלכלי מניב עם אפס עבודה פיזית מצדכם.
+              </div>
+              <p className="text-xs text-gray-400 text-center">* החישוב שמרני ואינו כולל רכישות פרטיות של העובדים מעבר לתקציב הארגון</p>
             </div>
           )
         }
