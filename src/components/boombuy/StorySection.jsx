@@ -43,7 +43,7 @@ export default function StorySection() {
     <section className="py-32 px-6 bg-[#F5F5F7] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-right mb-16" dir="rtl">
-          <h2 className="text-5xl font-[900] mb-4 tracking-tight text-black">הסיפור מאחורי המהלך</h2>
+          <h2 className="text-5xl font-black mb-4 tracking-tight text-black">הסיפור מאחורי המהלך</h2>
           <p className="text-2xl text-gray-600 font-bold">איך נולד השילוב שמשנה את כללי המשחק</p>
         </div>
         
@@ -61,7 +61,7 @@ export default function StorySection() {
                 {card.icon}
               </div>
               <div className="text-right" dir="rtl">
-                <h3 className="text-2xl font-[900] mb-4 text-black">{card.title}</h3>
+                <h3 className="text-2xl font-black mb-4 text-black">{card.title}</h3>
                 <p className="text-black text-lg leading-relaxed font-bold">{card.text}</p>
               </div>
             </motion.div>
