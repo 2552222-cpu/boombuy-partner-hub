@@ -95,7 +95,7 @@ export default function RoiSection({ orgCount, setOrgCount, useLarry, setUseLarr
                 <div className="apple-card p-6 text-center">
                   <Users className="w-6 h-6 mx-auto mb-3 text-blue-500" />
                   <div className="text-2xl font-bold text-black">
-                    <AnimatedNumber value={orgCount * 500} />
+                    <AnimatedNumber value={orgCount * employeesPerOrg} />
                   </div>
                   <div className="text-xs text-gray-400 uppercase font-bold tracking-wider">עובדים מחוברים</div>
                 </div>
