@@ -3,16 +3,16 @@ import { Users, PieChart } from 'lucide-react';
 import AnimatedNumber from './AnimatedNumber';
 
 export default function RoiSection({ orgCount, setOrgCount, useLarry, setUseLarry }) {
-  // חישוב: 300 עובדים × ₪1,000 תקציב = ₪300,000 מחזור לארגון
-  // רווח גולמי BoomBuy = 10% → GP לארגון = ₪30,000
-  // עמלת HRUS: 15% מ-GP (ללא לארי) או 10% (עם לארי)
-  const employeesPerOrg = 300;
-  const budgetPerEmployee = 1000;
-  const revenuePerOrg = employeesPerOrg * budgetPerEmployee; // ₪300,000
-  const gpRate = 0.10; // 10% רווח גולמי
-  const gpPerOrg = revenuePerOrg * gpRate; // ₪30,000
-  const hrusRate = useLarry ? 0.10 : 0.15;
-  const hrusPerOrg = gpPerOrg * hrusRate; // ₪4,500 או ₪3,000
+  // חישוב: 500 עובדים × ₪1,200 תקציב = ₪600,000 מחזור לארגון
+  // רווח גולמי BoomBuy = 12% → GP לארגון = ₪72,000
+  // עמלת HRUS: 13% מ-GP (ללא לארי) או 8% (עם לארי)
+  const employeesPerOrg = 500;
+  const budgetPerEmployee = 1200;
+  const revenuePerOrg = employeesPerOrg * budgetPerEmployee; // ₪600,000
+  const gpRate = 0.12; // 12% רווח גולמי
+  const gpPerOrg = revenuePerOrg * gpRate; // ₪72,000
+  const hrusRate = useLarry ? 0.08 : 0.13;
+  const hrusPerOrg = gpPerOrg * hrusRate;
   // × 2 שנים (24 חודשים)
   const totalProfit = orgCount * hrusPerOrg * 2;
 
