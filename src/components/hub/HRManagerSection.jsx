@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, FileText, Users, BarChart2 } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const sectors = ['טכנולוגיה', 'פיננסים', 'בריאות', 'חינוך', 'תעשייה', 'קמעונאות', 'ביטוח', 'ממשל/ציבורי', 'אחר'];
 
@@ -9,10 +10,12 @@ function RegistrationForm() {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1000);
+    await base44.functions.invoke('submitApplication', form);
+    setLoading(false);
+    setSubmitted(true);
   };
 
   if (submitted) {
