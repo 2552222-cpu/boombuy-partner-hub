@@ -1,59 +1,26 @@
 import React, { useState } from 'react';
-import Navbar from '../components/boombuy/Navbar';
-import HeroSection from '../components/boombuy/HeroSection';
-import StorySection from '../components/boombuy/StorySection';
-import DocumentsGrid from '../components/boombuy/DocumentsGrid';
-import RoiSection from '../components/boombuy/RoiSection';
-import Footer from '../components/boombuy/Footer';
-import DocumentModal from '../components/boombuy/DocumentModal';
-import ToastNotification from '../components/boombuy/ToastNotification';
-import TimelineSection from '../components/boombuy/TimelineSection';
-import VisionSection from '../components/boombuy/VisionSection';
-import JoinForm from '../components/boombuy/JoinForm';
-import { getDocuments } from '../components/boombuy/documentsData';
+import HubNavbar from '../components/hub/HubNavbar';
+import HubHero from '../components/hub/HubHero';
+import HrusSection from '../components/hub/HrusSection';
+import HRManagerSection from '../components/hub/HRManagerSection';
+import AcademiaSection from '../components/hub/AcademiaSection';
+import HubFooter from '../components/hub/HubFooter';
 
 export default function Home() {
-  const [selectedDoc, setSelectedDoc] = useState(null);
-  const [activeTabId, setActiveTabId] = useState(null);
-  const [orgCount, setOrgCount] = useState(500);
-  const [useLarry, setUseLarry] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-
-  const documents = getDocuments();
-
-  const handleSelectDoc = (doc) => {
-    setSelectedDoc(doc);
-    setActiveTabId(doc.tabs[0].id);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedDoc(null);
-    setActiveTabId(null);
-  };
+  const [activeSection, setActiveSection] = useState('hrus');
 
   return (
-    <div className="min-h-screen font-sans selection:bg-blue-100 bg-[#F5F5F7]">
-      <Navbar />
-      <HeroSection />
-      <StorySection />
-      <DocumentsGrid documents={documents} onSelectDoc={handleSelectDoc} />
-      <RoiSection 
-        orgCount={orgCount} 
-        setOrgCount={setOrgCount} 
-        useLarry={useLarry} 
-        setUseLarry={setUseLarry} 
-      />
-      <TimelineSection />
-      <VisionSection />
-      <JoinForm />
-      <Footer />
-      <DocumentModal 
-        selectedDoc={selectedDoc} 
-        activeTabId={activeTabId} 
-        setActiveTabId={setActiveTabId} 
-        onClose={handleCloseModal} 
-      />
-      <ToastNotification show={showToast} />
+    <div className="min-h-screen bg-[#0A0A0B] font-sans" dir="rtl" style={{ fontFamily: "'Heebo', sans-serif" }}>
+      <HubNavbar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <HubHero activeSection={activeSection} setActiveSection={setActiveSection} />
+      
+      <div className="relative">
+        {activeSection === 'hrus' && <HrusSection />}
+        {activeSection === 'hr' && <HRManagerSection />}
+        {activeSection === 'academia' && <AcademiaSection />}
+      </div>
+
+      <HubFooter />
     </div>
   );
 }
