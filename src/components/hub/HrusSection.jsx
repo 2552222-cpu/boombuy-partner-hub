@@ -130,7 +130,7 @@ function RoiCalc() {
 
 export default function HrusSection() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
+    <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
 
       {/* פוסטים לרשתות */}
       <section>
