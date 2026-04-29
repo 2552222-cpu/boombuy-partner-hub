@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { CheckCircle2, FileText, Users, BarChart2 } from 'lucide-react';
+import { CheckCircle2, FileText, Users, BarChart2, Building2, Mail, Phone, ChevronDown, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 
-const sectors = ['הייטק', 'תעשייה', 'שירותים', 'ציבורי', 'פיננסים', 'בריאות', 'חינוך', 'קמעונאות', 'אחר'];
+const roles = ['מנהלת/ת רווחה', 'מנהלת/ת משאבי אנוש', 'HRBP', 'ראש ועד עובדים', 'מנהל/ת כללי/ת', 'אחר'];
+const sectors = ['הייטק / טכנולוגיה', 'תעשייה / ייצור', 'שירותים פיננסיים', 'בריאות / רפואה', 'חינוך / אקדמיה', 'מסחר / קמעונאות', 'ציבורי / ממשלתי', 'אחר'];
+const empRanges = ['100–200', '200–500', '500–1,000', '1,000–5,000', '5,000+'];
 
 function GlassCard({ children, className = '' }) {
   return (
@@ -24,86 +27,138 @@ function SectionHeader({ icon, title, color, badge }) {
   );
 }
 
-function RegistrationForm() {
-  const [form, setForm] = useState({ org: '', contact: '', role: '', email: '', phone: '', size: '', sector: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+const selectClass = "w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none text-right transition-all text-sm appearance-none bg-white text-gray-800";
+const inputClass = "w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none text-right transition-all text-sm text-gray-800";
+const labelClass = "block text-sm text-gray-700 mb-2 text-right" ;
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+function RegistrationForm() {
+  const [form, setForm] = useState({ orgName: '', employees: '', role: '', sector: '', name: '', email: '', phone: '', message: '' });
+  const [status, setStatus] = useState('idle');
+
+  const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    await base44.functions.invoke('submitApplication', form);
-    setLoading(false);
-    setSubmitted(true);
+    if (!form.orgName || !form.email || !form.name || !form.employees) return;
+    setStatus('sending');
+    await base44.functions.invoke('submitApplication', {
+      org: form.orgName, contact: form.name, role: form.role,
+      email: form.email, phone: form.phone, size: form.employees, sector: form.sector,
+    });
+    setStatus('success');
   };
 
-  if (submitted) {
-    return (
-      <GlassCard className="p-10 text-center">
-        <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-        <h3 className="text-white text-2xl mb-2" style={{ fontWeight: 900 }}>המועמדות התקבלה!</h3>
-        <p className="text-gray-400 font-medium">נחזור אליך תוך 48 שעות לאישור הצטרפות.</p>
-      </GlassCard>
-    );
-  }
-
-  const inputClass = "w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors font-medium text-sm";
-  const selectClass = "w-full bg-[#1a1a1f] border border-white/15 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors font-medium text-sm";
-  const labelClass = "text-gray-300 text-xs mb-1.5 block font-bold";
-
   return (
-    <GlassCard className="p-6">
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <div className="grid md:grid-cols-2 gap-3">
+    <AnimatePresence mode="wait">
+      {status === 'success' ? (
+        <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-[2rem] p-14 text-center shadow-sm border border-gray-100">
+          <CheckCircle2 className="w-14 h-14 text-emerald-500 mx-auto mb-5" />
+          <h3 className="text-2xl text-black mb-2" style={{ fontWeight: 900 }}>קיבלנו! 🎉</h3>
+          <p className="text-gray-500 text-base mb-1"><strong className="text-black">{form.orgName}</strong> — הגשת המועמדות נשלחה בהצלחה.</p>
+          <p className="text-gray-400 text-sm font-medium">הצוות שלנו יחזור אלייך תוך 48 שעות לתיאום שיחת היכרות.</p>
+        </motion.div>
+      ) : (
+        <motion.form key="form" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          onSubmit={handleSubmit}
+          className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 space-y-5" dir="rtl">
+
+          {/* שם ארגון */}
           <div>
-            <label className={labelClass}>שם הארגון *</label>
-            <input name="org" value={form.org} onChange={handleChange} required placeholder='חברת דוגמה בע"מ' className={inputClass} />
+            <label className={labelClass} style={{ fontWeight: 700 }}>שם הארגון *</label>
+            <div className="relative">
+              <Building2 className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input required value={form.orgName} onChange={e => set('orgName', e.target.value)}
+                placeholder='חברת XYZ בע"מ'
+                className={`${inputClass} pr-11`} />
+            </div>
           </div>
+
+          {/* עובדים + סקטור */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>מספר עובדים *</label>
+              <div className="relative">
+                <select required value={form.employees} onChange={e => set('employees', e.target.value)} className={selectClass}>
+                  <option value="">בחרי...</option>
+                  {empRanges.map(r => <option key={r} value={r}>{r}</option>)}
+                </select>
+                <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+              </div>
+            </div>
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>סקטור</label>
+              <div className="relative">
+                <select value={form.sector} onChange={e => set('sector', e.target.value)} className={selectClass}>
+                  <option value="">בחרי...</option>
+                  {sectors.map(s => <option key={s} value={s}>{s}</option>)}
+                </select>
+                <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* שם + תפקיד */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>שם מלא *</label>
+              <input required value={form.name} onChange={e => set('name', e.target.value)}
+                placeholder="שם פרטי + משפחה" className={inputClass} />
+            </div>
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>תפקיד</label>
+              <div className="relative">
+                <select value={form.role} onChange={e => set('role', e.target.value)} className={selectClass}>
+                  <option value="">בחרי...</option>
+                  {roles.map(r => <option key={r} value={r}>{r}</option>)}
+                </select>
+                <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* מייל + טלפון */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>מייל *</label>
+              <div className="relative">
+                <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <input required type="email" value={form.email} onChange={e => set('email', e.target.value)}
+                  placeholder="name@company.co.il" className={`${inputClass} pr-11`} dir="ltr" />
+              </div>
+            </div>
+            <div>
+              <label className={labelClass} style={{ fontWeight: 700 }}>טלפון</label>
+              <div className="relative">
+                <Phone className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <input type="tel" value={form.phone} onChange={e => set('phone', e.target.value)}
+                  placeholder="05X-XXXXXXX" className={`${inputClass} pr-11`} dir="ltr" />
+              </div>
+            </div>
+          </div>
+
+          {/* הערות */}
           <div>
-            <label className={labelClass}>שם איש הקשר *</label>
-            <input name="contact" value={form.contact} onChange={handleChange} required placeholder="ישראל ישראלי" className={inputClass} />
+            <label className={labelClass} style={{ fontWeight: 700 }}>הערות / שאלות (אופציונלי)</label>
+            <textarea value={form.message} onChange={e => set('message', e.target.value)}
+              placeholder="ספרי לנו עוד על הארגון, אתגרי הרווחה שלך, או כל שאלה..."
+              rows={3} className={`${inputClass} resize-none`} />
           </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-3">
-          <div>
-            <label className={labelClass}>תפקיד *</label>
-            <input name="role" value={form.role} onChange={handleChange} required placeholder="מנהלת HR / רווחה" className={inputClass} />
-          </div>
-          <div>
-            <label className={labelClass}>מייל *</label>
-            <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="name@company.co.il" className={inputClass} />
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-3">
-          <div>
-            <label className={labelClass}>טלפון</label>
-            <input name="phone" value={form.phone} onChange={handleChange} placeholder="050-0000000" className={inputClass} />
-          </div>
-          <div>
-            <label className={labelClass}>מספר עובדים</label>
-            <select name="size" value={form.size} onChange={handleChange} className={selectClass}>
-              <option value="">בחר טווח</option>
-              <option>100–250</option>
-              <option>250–500</option>
-              <option>500–1,000</option>
-              <option>1,000+</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label className={labelClass}>מגזר</label>
-          <select name="sector" value={form.sector} onChange={handleChange} className={selectClass}>
-            <option value="">בחר מגזר</option>
-            {sectors.map(s => <option key={s}>{s}</option>)}
-          </select>
-        </div>
-        <button type="submit" disabled={loading} className="w-full py-3.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all disabled:opacity-60 shadow-lg shadow-blue-600/25" style={{ fontWeight: 900, fontSize: '1rem' }}>
-          {loading ? 'שולח...' : 'הגישי מועמדות'}
-        </button>
-        <p className="text-gray-600 text-xs text-center font-medium">כל הנתונים אנונימיים. לא ישמשו לשיווק. ניתן לפרוש בכל עת.</p>
-      </form>
-    </GlassCard>
+
+          <p className="text-xs text-gray-400 leading-relaxed">
+            המידע ישמש לצורך בדיקת התאמה ותיאום פגישה בלבד. נתוני המחקר יהיו אנונימיים לחלוטין.
+          </p>
+
+          <button type="submit" disabled={status === 'sending'}
+            className="w-full py-4 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-400 text-white rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-blue-600/25"
+            style={{ fontWeight: 800, fontSize: '1.05rem' }}>
+            {status === 'sending' ? <><Loader2 className="w-5 h-5 animate-spin" /> שולחת...</> : 'הגישי מועמדות ←'}
+          </button>
+
+          <p className="text-center text-xs text-gray-400 font-medium">הצוות שלנו יחזור אלייך תוך 48 שעות · ₪0 עלות לאורך כל המחקר</p>
+        </motion.form>
+      )}
+    </AnimatePresence>
   );
 }
 
