@@ -9,6 +9,7 @@ import DocumentModal from '../components/boombuy/DocumentModal';
 import ToastNotification from '../components/boombuy/ToastNotification';
 import TimelineSection from '../components/boombuy/TimelineSection';
 import VisionSection from '../components/boombuy/VisionSection';
+import JoinForm from '../components/boombuy/JoinForm';
 import { getDocuments } from '../components/boombuy/documentsData';
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
       />
       <TimelineSection />
       <VisionSection />
+      <JoinForm />
       <Footer />
       <DocumentModal 
         selectedDoc={selectedDoc} 
