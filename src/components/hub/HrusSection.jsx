@@ -4,59 +4,66 @@ import AnimatedNumber from '../boombuy/AnimatedNumber';
 
 const socialPosts = [
   {
-    label: 'LinkedIn',
-    content: `אחרי שנים בעולם ה-HR הבנתי: השאלה היא לא כמה תקציב — אלא איך משתמשים בו.
+    label: 'LinkedIn — לקהילת HRus',
+    content: `אחרי שנים בעולם ה-HR הבנתי: השאלה היא לא כמה תקציב — אלא מה עשינו איתו.
 
 BoomBuy ו-HRus יוצאים למחקר לאומי חסר תקדים:
 ✅ 100 ארגונים נבחרים
 ✅ ~50,000 עובדים
 ✅ 24 חודשי BoomBuy Premium — חינם לחלוטין
+✅ שיתוף אוניברסיטת בר-אילן
+
+שאלת המחקר: האם ₪500 של רווחה יכולים להרגיש לעובד כמו ₪1,200 — בלי להוסיף שקל?
 
 אם אתם מנהלות HR שרוצות לקחת חלק בשינוי — זה הזמן.
-המקומות מוגבלים. הגישו מועמדות עכשיו. [לינק]
+גל ראשון: 25 ארגונים בלבד. נסגר 30.4.2026.
 
-#HR #EmployeeWelfare #SilentRaise #BoomBuy #HRus`,
+#HR #EmployeeWelfare #SilentRaise #BoomBuy #HRus #IWPPI`,
   },
   {
-    label: 'פייסבוק',
-    content: `🔬 מחקר לאומי חדש | BoomBuy × HRus
+    label: 'פייסבוק — HRus Community',
+    content: `🔬 מחקר לאומי | The Silent Raise Study | BoomBuy × HRus × בר-אילן
 
 האם אפשר לשפר את תחושת העובד מבלי להוסיף שקל לתקציב הרווחה? 🤔
 
 אנחנו יוצאים לבדוק! מחפשים 100 ארגונים לפיילוט לאומי.
 
-✨ קבלו 24 חודשי פרימיום חינם
-📊 קבלו דוח benchmark אישי
-🏆 הצטרפו לנבחרת ה-100
+✨ קבלו 24 חודשי Premium — חינם
+📊 דוח Benchmark אישי
+🏆 הצטרפו כ-Founding Members של מדד IWPPI הישראלי
+🎖️ תג Welfare Power Leader ל-LinkedIn
 
-מקומות מוגבלים — הגישו מועמדות עכשיו!
-👇 [לינק]`,
+מקומות מוגבלים — גל ראשון נסגר 30.4.2026
+👇 research@boombuy.co.il`,
   },
   {
-    label: 'מייל',
-    content: `נושא: קול קורא — נבחרת ה-100 | מחקר ההעלאה השקטה
+    label: 'מייל — פנייה אישית למנהלת HR',
+    content: `נושא: קול קורא — The Silent Raise Study | נבחרת ה-100
 
 שלום [שם],
 
-אני פונה אליך בעניין מחקר לאומי ייחודי שנערך בשיתוף BoomBuy ו-HRus.
+אני פונה אליך בעניין מחקר לאומי ייחודי שנערך בשיתוף BoomBuy, HRus ואוניברסיטת בר-אילן.
 
-שאלת המחקר: האם ניתן לשפר מחוברות עובדים מבלי להוסיף שקל לתקציב הרווחה?
+שאלת המחקר:
+האם ניתן להעלות את השכר הנטו הנתפס של העובד — מבלי להוסיף שקל אחד לתקציב הרווחה?
 
-מה מקבל הארגון שמצטרף?
-• BoomBuy Premium — 24 חודשים ללא עלות
-• דוח Benchmark אישי מול 100 ארגונים
-• קרדיט בפרסום הלאומי ב-HRus
-• תג "Welfare Power Leader" ל-LinkedIn
-• ציון IWPPI רבעוני
+מה מקבל הארגון שמצטרף:
+• BoomBuy Premium — 24 חודשים ללא עלות לארגון
+• דוח Benchmark אישי מול 100 ארגונים ישראליים
+• קרדיט בפרסום הלאומי ב-HRus ובמאמר האקדמי
+• ציון IWPPI רבעוני — מדד כוח הקנייה הארגוני
+• תג "Welfare Power Leader" ל-LinkedIn + כנסי HRus
+• גישה מוקדמת לנתוני eNPS ישראלי
 
-מה נדרש? 4 סקרים קצרים (5 דקות כל אחד) לאורך שנה.
+מה נדרש?
+4 סקרים קצרים (5 דקות כל אחד) לאורך שנה. ארגון עם 100+ עובדים.
 
-100 מקומות בלבד. הגל הראשון נסגר 15 לאפריל 2026.
+100 מקומות בלבד. גל ראשון — 25 ארגונים — נסגר 30.4.2026.
 
-להגשת מועמדות: [לינק]
+לפרטים והגשת מועמדות: research@boombuy.co.il
 
 בכבוד,
-[שם]`,
+[שם] | BoomBuy × HRus`,
   },
 ];
 
@@ -81,8 +88,8 @@ function CopyBlock({ label, content }) {
         {open ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
       </button>
       {open && (
-        <div className="border-t border-white/8 px-6 pb-5 pt-4">
-          <pre className="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap text-right mb-4">{content}</pre>
+        <div className="border-t border-white/10 px-6 pb-5 pt-4">
+          <pre className="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap text-right mb-4 font-sans" dir="rtl">{content}</pre>
           <button onClick={handleCopy} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-colors">
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             {copied ? 'הועתק!' : 'העתק'}
@@ -100,13 +107,13 @@ function RoiCalc() {
   const total = perOrg * 2;
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-      <h3 className="text-white font-black text-xl mb-6">מחשבון רווח</h3>
-      <div className="space-y-6">
+    <div className="bg-white/5 border border-white/10 rounded-3xl p-7">
+      <h3 className="text-white font-black text-xl mb-5">מחשבון פוטנציאל רווח</h3>
+      <div className="space-y-5">
         <div>
-          <div className="flex justify-between mb-3 text-sm font-bold">
+          <div className="flex justify-between mb-2 text-sm font-bold">
             <span className="text-blue-400">{orgCount} ארגונים</span>
-            <span className="text-gray-400">מספר ארגונים</span>
+            <span className="text-gray-400">מספר ארגונים מחוברים</span>
           </div>
           <input type="range" min="10" max="500" step="10" value={orgCount} onChange={e => setOrgCount(+e.target.value)} className="w-full accent-blue-500" />
         </div>
@@ -119,7 +126,7 @@ function RoiCalc() {
             <p className="text-gray-500 text-xs">עמלה 10% במקום 15%</p>
           </div>
         </div>
-        <div className="bg-blue-600/15 border border-blue-500/25 rounded-2xl p-6 text-center">
+        <div className="bg-blue-600/15 border border-blue-500/25 rounded-2xl p-5 text-center">
           <div className="text-4xl font-black text-white mb-1">₪<AnimatedNumber value={total} /></div>
           <div className="text-gray-400 text-sm font-medium">רווח משוער לשנתיים</div>
         </div>
@@ -134,50 +141,82 @@ export default function HrusSection() {
 
       {/* פוסטים לרשתות */}
       <section>
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 bg-pink-500/20 rounded-xl flex items-center justify-center">
             <Share2 className="w-4 h-4 text-pink-400" />
           </div>
-          <h2 className="text-white font-black text-2xl">פוסטים ומיילים מוכנים</h2>
+          <h2 className="text-white font-black text-2xl">פוסטים ומיילים מוכנים לשיתוף</h2>
         </div>
         <div className="space-y-3">
           {socialPosts.map((p, i) => <CopyBlock key={i} label={p.label} content={p.content} />)}
         </div>
       </section>
 
-      {/* המכתב למנהלות */}
+      {/* המכתב הרשמי */}
       <section>
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 bg-indigo-500/20 rounded-xl flex items-center justify-center">
             <FileText className="w-4 h-4 text-indigo-400" />
           </div>
-          <h2 className="text-white font-black text-2xl">המכתב למנהלות HR</h2>
+          <h2 className="text-white font-black text-2xl">קול קורא — גרסה B (קצרה, לפנייה ישירה)</h2>
         </div>
-        <div className="bg-white rounded-3xl p-8 text-right" dir="rtl">
-          <div className="space-y-5 text-gray-700 leading-relaxed">
-            <header className="border-b pb-5">
-              <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">מאת: HRUS & BoomBuy</p>
-              <h3 className="text-xl font-black text-black">קול קורא: נבחרת ה-100 — מחקר למניעת שחיקה ושימור עובדים</h3>
+        <div className="bg-white rounded-3xl p-7 text-right" dir="rtl">
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <header className="border-b pb-4">
+              <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">THE SILENT RAISE STUDY | מחקר ההעלאה השקטה</p>
+              <h3 className="text-xl font-black text-black">קול קורא: נבחרת ה-100</h3>
+              <p className="text-gray-500 text-sm mt-1">Israel's First Welfare Delivery Mechanism Study</p>
             </header>
-            <p className="text-base">מנהלת יקרה, בשנים האחרונות השחיקה הפכה לאיום ממשי. תקציבי הרווחה המסורתיים כבר לא מצליחים לייצר אימפקט כלכלי אמיתי לעובד.</p>
-            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
-              <p className="font-black text-blue-800 text-base">הניסוי שלנו: האם ניתן להכפיל ערך הרווחה מבלי להוסיף שקל לתקציב?</p>
+            <p className="text-base font-bold text-black">"אותו תקציב. כוח קנייה אחר. תוצאה שונה לחלוטין."</p>
+            <p className="text-sm">תקציב הרווחה לא גדל. יוקר המחיה גדל. הציפיות של העובדים גדלות. ואת — מוצפת בתפעול ואין זמן ליצור חוויה אמיתית.</p>
+            <p className="text-sm">אבל מחקר בינלאומי מצביע על דבר מעניין: לא תמיד הבעיה היא כמה — אלא איך. תדירות, נגישות ויומיומיות של הטבה עשויות להשפיע על הערך שעובד מרגיש שהוא מקבל.</p>
+
+            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4">
+              <p className="font-black text-blue-800 text-sm">שאלת המחקר: האם שינוי בדרך שבה עובד נחשף להטבות — מתוך אותו תקציב — מעלה את תחושת הערך הכלכלי שלו ומשפר מחוברות?</p>
+              <p className="text-blue-600 text-xs mt-2">המחקר נעשה בשיתוף אוניברסיטת בר-אילן ועם ביקורת אקדמית מלאה.</p>
             </div>
-            <p className="text-base">אנו מזמינים <strong className="text-black">100 ארגונים ראשונים</strong> (200+ עובדים) לקחת חלק במחקר הלאומי ל-2026.</p>
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 space-y-2">
-              <h4 className="font-black text-black text-base mb-3">הטבות בלעדיות לנבחרת:</h4>
-              <p className="text-sm">✓ שדרוג Premium — ללא עלות</p>
-              <p className="text-sm">✓ פטור מעלויות הקמה ותפעול</p>
-              <p className="text-sm">✓ <strong className="text-black">ערך כפול לעובד</strong> על בסיס התקציב הקיים</p>
+
+            <div>
+              <h4 className="font-black text-black text-sm mb-2">מה את מקבלת</h4>
+              <div className="space-y-1 text-sm">
+                {[
+                  ['BoomBuy Premium 24 חודש', '₪0 — ללא כל עלות לארגון'],
+                  ['דוח Benchmark אישי', 'הארגון שלך vs. ממוצע 100 ארגונים ישראליים'],
+                  ['שמך על White Paper לאומי', 'קרדיט מחקרי ב-HRus ובפרסום האקדמי'],
+                  ['ציון IWPPI רבעוני', 'מדד כוח הקנייה הארגוני — מתפרסם ב-HRus כל רבעון'],
+                  ['תג Welfare Power Leader', 'LinkedIn + דיוורי ארגון + כנסי HRus'],
+                ].map(([b, d], i) => (
+                  <div key={i} className="flex justify-between gap-4">
+                    <span className="text-gray-500">{d}</span>
+                    <span className="font-bold text-black text-right flex-shrink-0">{b}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="text-xs text-gray-400 border-t pt-4">צוות ה-Partner Design | HRUS & BoomBuy</p>
+
+            <div>
+              <h4 className="font-black text-black text-sm mb-1">מה מתבקש ממך</h4>
+              <ul className="space-y-1 text-sm text-gray-600">
+                <li>• ארגון עם 100+ עובדים</li>
+                <li>• מחלקת רווחה / HR פעילה</li>
+                <li>• מילוי סקר ב-4 נקודות זמן (4–5 דקות בכל פעם, אנונימי לחלוטין)</li>
+                <li>• איש קשר אחד לתיאום לאורך השנה</li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-600 text-white rounded-2xl px-5 py-3 text-center">
+              <p className="font-black text-base">100 ארגונים בלבד. גל ראשון נסגר 30.4.2026.</p>
+              <p className="text-blue-200 text-xs mt-1">ארגונים שיצטרפו ייכנסו כ-Founding Members של מדד IWPPI הישראלי</p>
+            </div>
+
+            <p className="text-xs text-gray-400 border-t pt-3">לפרטים: research@boombuy.co.il | www.boombuy.co.il/research</p>
           </div>
         </div>
       </section>
 
       {/* ROI */}
       <section>
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 bg-emerald-500/20 rounded-xl flex items-center justify-center">
             <BarChart2 className="w-4 h-4 text-emerald-400" />
           </div>
@@ -188,7 +227,7 @@ export default function HrusSection() {
 
       {/* Timeline */}
       <section>
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 bg-orange-500/20 rounded-xl flex items-center justify-center">
             <TrendingUp className="w-4 h-4 text-orange-400" />
           </div>
@@ -196,14 +235,18 @@ export default function HrusSection() {
         </div>
         <div className="space-y-3">
           {[
-            { color: 'bg-blue-600', title: 'פיילוט — מרץ 2026', desc: 'חיבור 5–10 ארגוני עוגן, בדיקת היתכנות ראשונית.' },
-            { color: 'bg-indigo-600', title: 'ניסוי ה-100', desc: 'פתיחת הרשמה ל-100 ארגונים למחקר הלאומי.' },
-            { color: 'bg-emerald-600', title: 'סקייל', desc: 'יציאה למהלך רחב — יעד 500 ארגונים בשנה.' },
+            { color: 'bg-blue-600', title: 'גל 1 — Founding Members', date: '30.4.2026', desc: '25 ארגונים ראשונים. נסגר 15.4.2026.' },
+            { color: 'bg-indigo-600', title: 'גל 2', date: '11.6.2026', desc: '25 ארגונים נוספים. נסגר 1.6.2026.' },
+            { color: 'bg-violet-600', title: 'גל 3', date: '23.7.2026', desc: '25 ארגונים. נסגר 15.7.2026.' },
+            { color: 'bg-emerald-600', title: 'גל 4 — השלמה ל-100', date: '3.9.2026', desc: '25 ארגונים אחרונים. נסגר 25.8.2026.' },
           ].map((step, i) => (
-            <div key={i} className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl px-6 py-5">
+            <div key={i} className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
               <div className={`w-8 h-8 ${step.color} rounded-full flex-shrink-0 mt-0.5`} />
-              <div className="text-right">
-                <p className="text-white font-black text-sm">{step.title}</p>
+              <div className="text-right flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500 text-xs">{step.date}</span>
+                  <p className="text-white font-black text-sm">{step.title}</p>
+                </div>
                 <p className="text-gray-400 text-sm mt-0.5">{step.desc}</p>
               </div>
             </div>
