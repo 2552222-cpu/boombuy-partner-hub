@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle2, FileText, Users, BarChart2, Building2, Mail, Phone, ChevronDown, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
+import PrivacySection from './PrivacySection';
 
 const roles = ['מנהלת/ת רווחה', 'מנהלת/ת משאבי אנוש', 'HRBP', 'ראש ועד עובדים', 'מנהל/ת כללי/ת', 'אחר'];
 const sectors = ['הייטק / טכנולוגיה', 'תעשייה / ייצור', 'שירותים פיננסיים', 'בריאות / רפואה', 'חינוך / אקדמיה', 'מסחר / קמעונאות', 'ציבורי / ממשלתי', 'אחר'];
@@ -285,6 +286,11 @@ export default function HRManagerSection() {
       <section>
         <SectionHeader icon={<Users className="w-4 h-4 text-emerald-400" />} color="bg-emerald-500/20" title="הגישי מועמדות" badge="100 מקומות בלבד" />
         <RegistrationForm />
+      </section>
+
+      {/* פרטיות */}
+      <section>
+        <PrivacySection />
       </section>
     </div>
   );
