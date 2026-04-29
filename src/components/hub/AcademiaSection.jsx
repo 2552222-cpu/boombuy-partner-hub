@@ -15,7 +15,7 @@ function SectionHeader({ icon, title, color }) {
       <div className={`w-8 h-8 ${color} rounded-xl flex items-center justify-center flex-shrink-0`}>
         {icon}
       </div>
-      <h2 className="text-white text-xl leading-tight" style={{ fontWeight: 900 }}>{title}</h2>
+      <h2 className="text-white text-xl leading-tight section-title">{title}</h2>
     </div>
   );
 }
@@ -74,13 +74,13 @@ export default function AcademiaSection() {
         <GlassCard className="p-6 text-right space-y-4" dir="rtl">
           <div className="border-b border-white/10 pb-4">
             <p className="text-xs text-violet-400 uppercase tracking-widest mb-1 font-extrabold">RESEARCH PROTOCOL v2.0 — For Academic Review | CONFIDENTIAL</p>
-            <h3 className="text-white text-lg leading-snug" style={{ fontWeight: 900 }}>Delivery Mechanism Effects on Perceived Welfare Value</h3>
+            <h3 className="text-white text-lg leading-snug" >Delivery Mechanism Effects on Perceived Welfare Value</h3>
             <p className="text-gray-300 text-sm mt-0.5 font-semibold">A Longitudinal Quasi-Experimental Study</p>
             <p className="text-gray-500 text-xs mt-1 font-medium">BoomBuy × HRus × Department of Psychology, Bar-Ilan University</p>
           </div>
 
           <div>
-            <h4 className="text-gray-200 text-sm mb-2" style={{ fontWeight: 800 }}>Abstract</h4>
+            <h4 className="text-gray-200 text-sm mb-2" >Abstract</h4>
             <p className="text-gray-300 text-sm leading-relaxed font-medium">מחקר זה בוחן האם שינוי במנגנון מסירת תקציב רווחה ארגוני קבוע — ללא שינוי בגובהו — משפיע על תפיסת הערך הכלכלי של העובד (PPP), ומשם על רמת המחוברות (eNPS) ותפיסת התמיכה הארגונית (POS). הרציונל: הספרות הקיימת בחנה בעיקר את השפעת גובה ההטבה. פחות ידוע על השפעת תדירות החשיפה, נגישות ואופן ההפצה.</p>
           </div>
 
@@ -96,24 +96,24 @@ export default function AcademiaSection() {
               ['אישור אתי', 'ועדת הלסינקי + IRB אוניברסיטאי'],
             ].map(([k, v], i) => (
               <div key={i} className="flex justify-between gap-3 bg-white/5 rounded-xl px-4 py-2.5">
-                <span className="text-white text-sm" style={{ fontWeight: 700 }}>{v}</span>
+                <span className="text-white text-sm" >{v}</span>
                 <span className="text-gray-500 text-xs font-medium flex-shrink-0">{k}</span>
               </div>
             ))}
           </div>
 
           <div>
-            <h4 className="text-gray-200 text-sm mb-1.5" style={{ fontWeight: 800 }}>שאלת המחקר הראשית</h4>
+            <h4 className="text-gray-200 text-sm mb-1.5" >שאלת המחקר הראשית</h4>
             <p className="text-gray-300 text-sm leading-relaxed font-medium italic">"האם שינוי במנגנון מסירת תקציב רווחה קבוע מעלה את Perceived Purchasing Power (PPP), ובאמצעותו את eNPS ו-Perceived Organizational Support (POS)?"</p>
           </div>
 
           <div>
-            <h4 className="text-gray-200 text-sm mb-1.5" style={{ fontWeight: 800 }}>Research Gap</h4>
+            <h4 className="text-gray-200 text-sm mb-1.5" >Research Gap</h4>
             <p className="text-gray-400 text-sm leading-relaxed font-medium">הספרות בחנה (א) כמה הטבה משפיעה על מחוברות ו-(ב) איזה סוג הטבה עדיף. שאלה שלישית נותרה פתוחה: האם אופן המסירה — תדירות, נגישות ויומיומיות — משפיע על הערך הנתפס בעצמאות מגובה ההטבה? שאלה זו לא נבדקה בספרות ה-POS, financial wellbeing, או eNPS הקיימת.</p>
           </div>
 
           <div>
-            <h4 className="text-gray-200 text-sm mb-2" style={{ fontWeight: 800 }}>לוח זמנים מדויק</h4>
+            <h4 className="text-gray-200 text-sm mb-2" >לוח זמנים מדויק</h4>
             <div className="rounded-xl overflow-hidden border border-white/10">
               <div className="grid grid-cols-5 text-xs px-4 py-2 bg-white/10 text-gray-400 font-bold gap-2 text-right">
                 <span>גל</span><span>T0</span><span>T1 (45י׳)</span><span>T2 (120י׳)</span><span>T3 (240י׳)</span>
@@ -149,7 +149,7 @@ export default function AcademiaSection() {
                 </div>
                 <span className={`text-xs uppercase tracking-wider ${u.text} font-extrabold`}>עדיפות {u.priority}</span>
               </div>
-              <h3 className="text-white text-base mb-1" style={{ fontWeight: 900 }}>{u.name}</h3>
+              <h3 className="text-white text-base mb-1" >{u.name}</h3>
               <p className="text-gray-300 text-sm font-bold">{u.contact}</p>
               <p className="text-gray-500 text-xs mt-0.5 font-medium">{u.field}</p>
             </div>
@@ -165,7 +165,7 @@ export default function AcademiaSection() {
             <GlassCard key={i} className="flex items-center gap-4 px-5 py-4">
               <span className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-300 rounded-lg text-xs font-black font-mono flex-shrink-0 min-w-[64px] text-center">{m.badge}</span>
               <div className="text-right">
-                <p className="text-white text-sm" style={{ fontWeight: 700 }}>{m.name}</p>
+                <p className="text-white text-sm" >{m.name}</p>
                 <p className="text-gray-400 text-xs font-medium mt-0.5">{m.desc}</p>
               </div>
             </GlassCard>
@@ -178,7 +178,7 @@ export default function AcademiaSection() {
         <SectionHeader icon={<FileText className="w-4 h-4 text-blue-400" />} color="bg-blue-500/20" title="מכתב פנייה לשותף אקדמי" />
         <GlassCard className="p-6">
           <div className="flex items-center justify-between mb-4">
-            <button onClick={handleCopy} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm hover:bg-blue-700 transition-colors" style={{ fontWeight: 700 }}>
+            <button onClick={handleCopy} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm hover:bg-blue-700 transition-colors" >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'הועתק!' : 'העתק מכתב'}
             </button>
@@ -193,7 +193,7 @@ export default function AcademiaSection() {
       {/* פרטי מחקר */}
       <section>
         <GlassCard className="p-6 text-right" dir="rtl">
-          <h3 className="text-white text-lg mb-4" style={{ fontWeight: 900 }}>מה מקבל השותף האקדמי</h3>
+          <h3 className="text-white text-lg mb-4" >מה מקבל השותף האקדמי</h3>
           <div className="grid md:grid-cols-2 gap-3 text-sm mb-4">
             {[
               ['מדגם', 'N=100 ארגונים, ~50,000 עובדים'],
@@ -206,7 +206,7 @@ export default function AcademiaSection() {
               ['קשר', 'research@boombuy.co.il'],
             ].map(([k, v], i) => (
               <div key={i} className="flex justify-between gap-3 bg-white/5 rounded-xl px-4 py-2.5">
-                <span className="text-white text-sm" style={{ fontWeight: 700 }}>{v}</span>
+                <span className="text-white text-sm" >{v}</span>
                 <span className="text-gray-500 text-xs font-medium flex-shrink-0 self-center">{k}</span>
               </div>
             ))}

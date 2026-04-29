@@ -73,7 +73,7 @@ function SectionHeader({ icon, title, color }) {
       <div className={`w-8 h-8 ${color} rounded-xl flex items-center justify-center flex-shrink-0`}>
         {icon}
       </div>
-      <h2 className="text-white text-xl leading-tight" style={{ fontWeight: 900 }}>{title}</h2>
+      <h2 className="text-white text-xl leading-tight section-title">{title}</h2>
     </div>
   );
 }
@@ -102,7 +102,7 @@ function CopyBlock({ label, content }) {
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-5 py-3.5 text-right">
         <div className="flex items-center gap-2.5">
           <Share2 className="w-4 h-4 text-blue-400" />
-          <span className="text-white text-sm" style={{ fontWeight: 700 }}>{label}</span>
+          <span className="text-white text-sm font-bold">{label}</span>
         </div>
         {open ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
       </button>
@@ -113,6 +113,7 @@ function CopyBlock({ label, content }) {
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             {copied ? 'הועתק!' : 'העתק'}
           </button>
+
         </div>
       )}
     </GlassCard>
@@ -127,11 +128,11 @@ function RoiCalc() {
 
   return (
     <GlassCard className="p-6">
-      <h3 className="text-white text-lg mb-5" style={{ fontWeight: 900 }}>מחשבון פוטנציאל רווח</h3>
+      <h3 className="text-white text-lg mb-5 section-title">מחשבון פוטנציאל רווח</h3>
       <div className="space-y-4">
         <div>
           <div className="flex justify-between mb-2 text-sm">
-            <span className="text-blue-400" style={{ fontWeight: 700 }}>{orgCount} ארגונים</span>
+            <span className="text-blue-400 font-bold">{orgCount} ארגונים</span>
             <span className="text-gray-400 font-medium">מספר ארגונים מחוברים</span>
           </div>
           <input type="range" min="10" max="500" step="10" value={orgCount} onChange={e => setOrgCount(+e.target.value)} className="w-full accent-blue-500" />
@@ -141,12 +142,12 @@ function RoiCalc() {
             <div className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all ${useLarry ? 'left-5' : 'left-0.5'}`} />
           </button>
           <div className="text-right">
-            <p className="text-white text-sm" style={{ fontWeight: 700 }}>ניהול ע"י לארי</p>
+            <p className="text-white text-sm font-bold">ניהול ע"י לארי</p>
             <p className="text-gray-400 text-xs font-medium">עמלה 10% במקום 15%</p>
           </div>
         </div>
         <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl p-5 text-center">
-          <div className="text-3xl text-white mb-1" style={{ fontWeight: 900 }}>₪<AnimatedNumber value={total} /></div>
+          <div className="text-3xl text-white mb-1 section-title">₪<AnimatedNumber value={total} /></div>
           <div className="text-gray-300 text-sm font-medium">רווח משוער לשנתיים</div>
         </div>
       </div>

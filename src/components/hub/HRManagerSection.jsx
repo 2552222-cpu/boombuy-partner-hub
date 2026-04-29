@@ -22,8 +22,8 @@ function SectionHeader({ icon, title, color, badge }) {
       <div className={`w-8 h-8 ${color} rounded-xl flex items-center justify-center flex-shrink-0`}>
         {icon}
       </div>
-      <h2 className="text-white text-xl leading-tight" style={{ fontWeight: 900 }}>{title}</h2>
-      {badge && <span className="px-2.5 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-400 rounded-full text-xs" style={{ fontWeight: 700 }}>{badge}</span>}
+      <h2 className="text-white text-xl leading-tight section-title">{title}</h2>
+      {badge && <span className="px-2.5 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-400 rounded-full text-xs font-bold">{badge}</span>}
     </div>
   );
 }
@@ -55,7 +55,7 @@ function RegistrationForm() {
         <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
           className="bg-white rounded-[2rem] p-14 text-center shadow-sm border border-gray-100">
           <CheckCircle2 className="w-14 h-14 text-emerald-500 mx-auto mb-5" />
-          <h3 className="text-2xl text-black mb-2" style={{ fontWeight: 900 }}>קיבלנו! 🎉</h3>
+          <h3 className="text-2xl text-black mb-2" >קיבלנו! 🎉</h3>
           <p className="text-gray-500 text-base mb-1"><strong className="text-black">{form.orgName}</strong> — הגשת המועמדות נשלחה בהצלחה.</p>
           <p className="text-gray-400 text-sm font-medium">הצוות שלנו יחזור אלייך תוך 48 שעות לתיאום שיחת היכרות.</p>
         </motion.div>
@@ -66,7 +66,7 @@ function RegistrationForm() {
 
           {/* שם ארגון */}
           <div>
-            <label className={labelClass} style={{ fontWeight: 700 }}>שם הארגון *</label>
+            <label className={labelClass} >שם הארגון *</label>
             <div className="relative">
               <Building2 className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
               <input required value={form.orgName} onChange={e => set('orgName', e.target.value)}
@@ -78,7 +78,7 @@ function RegistrationForm() {
           {/* עובדים + סקטור */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>מספר עובדים *</label>
+              <label className={labelClass} >מספר עובדים *</label>
               <div className="relative">
                 <select required value={form.employees} onChange={e => set('employees', e.target.value)} className={selectClass}>
                   <option value="">בחרי...</option>
@@ -88,7 +88,7 @@ function RegistrationForm() {
               </div>
             </div>
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>סקטור</label>
+              <label className={labelClass} >סקטור</label>
               <div className="relative">
                 <select value={form.sector} onChange={e => set('sector', e.target.value)} className={selectClass}>
                   <option value="">בחרי...</option>
@@ -102,12 +102,12 @@ function RegistrationForm() {
           {/* שם + תפקיד */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>שם מלא *</label>
+              <label className={labelClass} >שם מלא *</label>
               <input required value={form.name} onChange={e => set('name', e.target.value)}
                 placeholder="שם פרטי + משפחה" className={inputClass} />
             </div>
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>תפקיד</label>
+              <label className={labelClass} >תפקיד</label>
               <div className="relative">
                 <select value={form.role} onChange={e => set('role', e.target.value)} className={selectClass}>
                   <option value="">בחרי...</option>
@@ -121,7 +121,7 @@ function RegistrationForm() {
           {/* מייל + טלפון */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>מייל *</label>
+              <label className={labelClass} >מייל *</label>
               <div className="relative">
                 <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input required type="email" value={form.email} onChange={e => set('email', e.target.value)}
@@ -129,7 +129,7 @@ function RegistrationForm() {
               </div>
             </div>
             <div>
-              <label className={labelClass} style={{ fontWeight: 700 }}>טלפון</label>
+              <label className={labelClass} >טלפון</label>
               <div className="relative">
                 <Phone className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input type="tel" value={form.phone} onChange={e => set('phone', e.target.value)}
@@ -140,7 +140,7 @@ function RegistrationForm() {
 
           {/* הערות */}
           <div>
-            <label className={labelClass} style={{ fontWeight: 700 }}>הערות / שאלות (אופציונלי)</label>
+            <label className={labelClass} >הערות / שאלות (אופציונלי)</label>
             <textarea value={form.message} onChange={e => set('message', e.target.value)}
               placeholder="ספרי לנו עוד על הארגון, אתגרי הרווחה שלך, או כל שאלה..."
               rows={3} className={`${inputClass} resize-none`} />
@@ -174,19 +174,19 @@ export default function HRManagerSection() {
         <GlassCard className="p-6 mb-3">
           <div className="text-right" dir="rtl">
             <p className="text-blue-400 text-xs uppercase tracking-widest mb-1 font-extrabold">BoomBuy × HRus × אוניברסיטת בר-אילן | 2026–2027</p>
-            <h3 className="text-white text-xl leading-snug mb-2" style={{ fontWeight: 900 }}>"מה אם ₪500 של רווחה ירגישו לעובד כמו ₪1,200?"</h3>
+            <h3 className="text-white text-xl leading-snug mb-2" >"מה אם ₪500 של רווחה ירגישו לעובד כמו ₪1,200?"</h3>
             <p className="text-gray-300 text-sm font-medium">בלי להוסיף תקציב. בלי לבקש אישורים. רק לשנות את השיטה.</p>
           </div>
         </GlassCard>
 
         <div className="grid md:grid-cols-2 gap-3 mb-3">
           <GlassCard className="p-5 text-right" dir="rtl">
-            <h4 className="text-white text-sm mb-2" style={{ fontWeight: 800 }}>הבעיה שכולנו מכירים</h4>
+            <h4 className="text-white text-sm mb-2" >הבעיה שכולנו מכירים</h4>
             <p className="text-gray-300 text-sm leading-relaxed font-medium">תקציב הרווחה לא גדל. יוקר המחיה גדל. העובדים מרגישים פחות ופחות שהארגון אכפת להם. ואת — מוצפת בתפעול ואין לך זמן ליצור חוויה אמיתית.</p>
             <p className="text-gray-400 text-sm mt-2 font-medium">אבל מה אם הבעיה אינה גובה התקציב — אלא אופן השימוש בו?</p>
           </GlassCard>
           <GlassCard className="p-5 text-right" dir="rtl">
-            <h4 className="text-white text-sm mb-2" style={{ fontWeight: 800 }}>שאלת המחקר</h4>
+            <h4 className="text-white text-sm mb-2" >שאלת המחקר</h4>
             <p className="text-gray-300 text-sm leading-relaxed font-medium">כאשר תקציב רווחה קבוע מועבר דרך פלטפורמה שמגדילה את כוח הקנייה הנתפס של העובד — האם מחוברות, שביעות הרצון וההרגשה של "הארגון אכפת לי" עולים באופן מדיד?</p>
             <p className="text-blue-400 text-xs mt-2 font-bold">המחקר נעשה עם אוניברסיטת בר-אילן — לא whitepaper שיווקי.</p>
           </GlassCard>
@@ -195,7 +195,7 @@ export default function HRManagerSection() {
         {/* מה מקבלים */}
         <GlassCard className="overflow-hidden mb-3">
           <div className="px-5 py-3 border-b border-white/10">
-            <h4 className="text-white text-sm text-right" style={{ fontWeight: 800 }} dir="rtl">מה את מקבלת כשאת מצטרפת</h4>
+            <h4 className="text-white text-sm text-right"  dir="rtl">מה את מקבלת כשאת מצטרפת</h4>
           </div>
           <div className="divide-y divide-white/8">
             {[
@@ -208,7 +208,7 @@ export default function HRManagerSection() {
             ].map(([b, d], i) => (
               <div key={i} className={`flex items-center justify-between px-5 py-2.5 text-right ${i % 2 === 0 ? 'bg-white/3' : ''}`} dir="rtl">
                 <span className="text-gray-400 text-sm font-medium">{d}</span>
-                <span className="text-white text-sm" style={{ fontWeight: 700 }}>{b}</span>
+                <span className="text-white text-sm" >{b}</span>
               </div>
             ))}
           </div>
@@ -216,7 +216,7 @@ export default function HRManagerSection() {
 
         {/* מה נדרש */}
         <GlassCard className="p-5 text-right" dir="rtl">
-          <h4 className="text-white text-sm mb-2" style={{ fontWeight: 800 }}>מה מתבקש ממך</h4>
+          <h4 className="text-white text-sm mb-2" >מה מתבקש ממך</h4>
           <ul className="space-y-1 text-sm text-gray-300 font-medium mb-3">
             <li>• מינימום 100 עובדים בארגון</li>
             <li>• מחלקת רווחה פעילה (ולו 0.5 משרה)</li>
@@ -224,7 +224,7 @@ export default function HRManagerSection() {
             <li>• איש קשר אחד מהצוות לתיאום לאורך השנה</li>
           </ul>
           <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl px-4 py-3">
-            <p className="text-blue-300 text-sm" style={{ fontWeight: 900 }}>100 ארגונים בלבד. גל ראשון — 25 ארגונים — נסגר 30.4.2026</p>
+            <p className="text-blue-300 text-sm" >100 ארגונים בלבד. גל ראשון — 25 ארגונים — נסגר 30.4.2026</p>
             <p className="text-gray-400 text-xs mt-0.5 font-medium">ארגונים שיצטרפו ייכנסו כ-Founding Members של מדד IWPPI הישראלי</p>
           </div>
         </GlassCard>
@@ -237,21 +237,21 @@ export default function HRManagerSection() {
         <div className="bg-white rounded-2xl p-7 text-right space-y-4" dir="rtl">
           <div className="border-b border-gray-200 pb-4">
             <p className="text-xs text-blue-600 uppercase tracking-widest mb-1 font-extrabold">BoomBuy × HRus × אוניברסיטת בר-אילן</p>
-            <h3 className="text-gray-900 text-xl leading-snug" style={{ fontWeight: 900 }}>The Silent Raise Study 2026 — קול קורא רשמי</h3>
+            <h3 className="text-gray-900 text-xl leading-snug" >The Silent Raise Study 2026 — קול קורא רשמי</h3>
             <p className="text-gray-500 text-sm mt-1 font-medium">מחקר לאורכי | 100 ארגונים | 4 גלים | 2026–2027</p>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-            <p className="text-blue-800 text-sm" style={{ fontWeight: 800 }}>שאלת המחקר: האם הגדלת כוח הקנייה הנתפס של עובד, מתוך תקציב רווחה קבוע, מייצרת עלייה מדידה ב-eNPS וב-Perceived Organizational Support?</p>
+            <p className="text-blue-800 text-sm" >שאלת המחקר: האם הגדלת כוח הקנייה הנתפס של עובד, מתוך תקציב רווחה קבוע, מייצרת עלייה מדידה ב-eNPS וב-Perceived Organizational Support?</p>
           </div>
 
           <div>
-            <h4 className="text-gray-800 text-sm mb-2" style={{ fontWeight: 800 }}>הרקע</h4>
+            <h4 className="text-gray-800 text-sm mb-2" >הרקע</h4>
             <p className="text-gray-600 text-sm leading-relaxed font-medium">תקציבי הרווחה לא גדלים. יוקר המחיה גדל. 42% מהעובדים בישראל ובעולם מציינים שחוסר ביטחון פיננסי פוגע בביצועי העבודה שלהם (Reward Gateway, 2024). הפתרון הסטנדרטי — "תגדיל תקציב" — לא תמיד אפשרי. המחקר בא לבחון כיוון אחר: האם שיפור בנגישות, תדירות ורלוונטיות — מתוך אותו תקציב — יכול לשנות את התמונה?</p>
           </div>
 
           <div>
-            <h4 className="text-gray-800 text-sm mb-2" style={{ fontWeight: 800 }}>לוח זמנים</h4>
+            <h4 className="text-gray-800 text-sm mb-2" >לוח זמנים</h4>
             <div className="rounded-xl overflow-hidden border border-gray-200">
               {[
                 { wave: 'גל 1 — Founding Members', date: '30.4.2026', close: '15.4.2026' },
@@ -262,14 +262,14 @@ export default function HRManagerSection() {
                 <div key={i} className={`flex justify-between items-center px-4 py-2.5 text-sm ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
                   <span className="text-gray-400 text-xs font-medium">סגירה: {g.close}</span>
                   <span className="text-gray-500 text-xs font-medium">{g.date}</span>
-                  <span className="text-gray-800 text-sm" style={{ fontWeight: 700 }}>{g.wave}</span>
+                  <span className="text-gray-800 text-sm" >{g.wave}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-4 space-y-1.5">
-            <h4 className="text-gray-800 text-sm mb-2" style={{ fontWeight: 800 }}>התחייבויות BoomBuy</h4>
+            <h4 className="text-gray-800 text-sm mb-2" >התחייבויות BoomBuy</h4>
             {[
               'פלטפורמת BoomBuy Premium — 24 חודשים ללא עלות לארגון',
               'דוח Benchmark אישי בסיום המחקר',
